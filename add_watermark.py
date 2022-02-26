@@ -5,7 +5,7 @@ from watermark import add_watermark
 img = cv2.imread("./pictures/avatar.jpg", 1)
 watermark = cv2.imread("./pictures/watermark.jpg", 0)
 
-img_watermark = add_watermark(img, watermark, 20000)
+img_watermark = add_watermark(img, watermark, 20000, 8)
 
 # print image
 plt.subplot(1, 2, 1), plt.imshow(img[:, :, [2, 1, 0]])

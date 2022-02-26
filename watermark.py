@@ -35,12 +35,12 @@ def add_watermark_single(img, watermark, coefficient):
     return img_watermark
 
 
-def add_watermark(img, watermark, coefficient):
+def add_watermark(img, watermark, coefficient, ratio=8):
     img_b, img_g, img_r = cv2.split(img)
     img_h, img_w = img.shape[0], img.shape[1]
     wm_h, wm_w = watermark.shape[0], watermark.shape[1]
-    ratio_h = img_h / wm_h / 2
-    ratio_w = img_w / wm_w / 2
+    ratio_h = img_h / wm_h / ratio
+    ratio_w = img_w / wm_w / ratio
     ratio = ratio_h if ratio_w > ratio_h else ratio_w
     wm_h = np.int(wm_h * ratio)
     wm_w = np.int(wm_w * ratio)
